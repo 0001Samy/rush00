@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hyein.c                                            :+:      :+:    :+:   */
+/*   rush02.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hesong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/07 11:53:21 by hesong            #+#    #+#             */
-/*   Updated: 2021/08/08 18:37:05 by clmurphy         ###   ########.fr       */
+/*   Created: 2021/08/08 18:04:22 by hesong            #+#    #+#             */
+/*   Updated: 2021/08/08 18:05:07 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	first_row(int x, int y)
 			ft_putchar('B');
 		}
 		if (x > 1)
-			ft_putchar('C');
+			ft_putchar('A');
 		ft_putchar('\n');
 	}
 	return (0);
@@ -76,19 +76,17 @@ int	last_row(int x, int y)
 	if (x == 1 && y > 1)
 	{
 		ft_putchar('C');
-		ft_putchar('\n');
 		return (0);
 	}
 	ft_putchar('C');
 	while (i++ < x - 2)
-	{	
+	{
 		ft_putchar('B');
 	}
 	if (x > 1)
-		ft_putchar('A');
-		ft_putchar('\n');
+		ft_putchar('C');
 	return (0);
-}	
+}
 
 int	rush(int x, int y)
 {

@@ -6,14 +6,14 @@
 /*   By: clmurphy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 10:49:23 by clmurphy          #+#    #+#             */
-/*   Updated: 2021/08/08 17:05:02 by sabadoud         ###   ########.fr       */
+/*   Updated: 2021/08/08 18:01:01 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <libc.h>
+void	rush(int x, int y);
+void	ft_putchar(char c);
 
-int	rush(int,int);
-#include <stdio.h>
-
-int	main(int ac,char **av)
+int	main(int ac, char **av)
 {
 	rush(atoi(av[1]), atoi(av[2]));
 	return (0);

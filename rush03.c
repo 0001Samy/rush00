@@ -1,88 +1,103 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rushDraft.c                                        :+:      :+:    :+:   */
+/*   rush03.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clmurphy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/07 12:17:43 by clmurphy          #+#    #+#             */
-/*   Updated: 2021/08/07 13:56:54 by clmurphy         ###   ########.fr       */
+/*   Created: 2021/08/08 17:22:49 by clmurphy          #+#    #+#             */
+/*   Updated: 2021/08/08 18:35:00 by clmurphy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include <unistd.h>
 
-void ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putchar(char c);
 
-void first_and_last_row(int x, int y)
+int	first_and_last_row(int x, int y)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if (x ==1)
+	if (x == 1 && y == 1)
+	{
 		ft_putchar('A');
-	ft_putchar('A');
-	while(i < x-2)
-	{
-		ft_putchar('B');
-		i++;
+		ft_putchar('\n');
+		return (0);
 	}
-	ft_putchar('C');
-	ft_putchar('\n');
+	else
+	{
+		ft_putchar('A');
+		while (i++ < x - 2 )
+		{
+			ft_putchar('B');
+		}
+		if (x > 1)
+			ft_putchar('C');
+		ft_putchar('\n');
+	}
+	return (0);
 }
 
-void  print_middle(int x, int y)
+int	left_right_column(int x, int y)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if (x ==1)
-		ft_putchar('B');
-	ft_putchar('B');
-	while(i < x-2)
+	if (x == 1)
 	{
-		ft_putchar(' ');
-		i++;
+		while (i++ < y - 2)
+		{
+			ft_putchar('B');
+			ft_putchar('\n');
+		}
 	}
-	ft_putchar('B');
-	ft_putchar('\n');
+	if (x > 1)
+	{
+		while (y - 2 > 0)
+		{
+			y -= 1;
+			ft_putchar('B');
+			while (i++ < x - 2)
+				ft_putchar(' ');
+			ft_putchar('B');
+			ft_putchar('\n');
+			i = 0;
+		}
+	}
+	return (0);
 }
 
-void last_row(int x, int y)
+int	last_row(int x, int y)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if (x ==1)
+	if (x == 1 && y > 1)
+	{
 		ft_putchar('C');
+		return (0);
+	}
 	ft_putchar('C');
-	while(i < x-2)
+	while (i++ < x - 2)
 	{
 		ft_putchar('B');
-		i++;
 	}
-	ft_putchar('A');
+	if (x > 1)
+		ft_putchar('A');
+		ft_putchar('\n');
+	return (0);
 }
 
-int rush(int x, int y)
+int	rush(int x, int y)
 {
-	if (x < 1 && y < 1)
+	if (x < 1 || y < 1)
 		return (0);
 	first_and_last_row(x, y);
-	while (y-- != 2)
+	left_right_column(x, y);
+	if (y > 1)
 	{
-		print_middle(x, y);
+		first_and_last_row(x, y);
 	}
-first_and_last_row(x, y);
-	ft_putchar('\n');
-	return(0);
-}
-
-int	main() 
-{
-	rush(4, 4);
 	return (0);
 }
